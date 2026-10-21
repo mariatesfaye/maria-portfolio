@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* Tokens. Light values also live on :root so the first paint is themed before JS. */
+:root {
+  --bg: #f4f2ec;
+  --bg-elevated: #fbfaf6;
+  --surface: #fffcf7;
+  --text: #1b1916;
+  --muted: #5a564f;
+  --border: #9c978a;
+  --control: #8f8b7e;
+  --accent: #0e5c4b;
+  --accent-hover: #0a4a3c;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #131311;
+  --bg-elevated: #1c1b18;
+  --surface: #191816;
+  --text: #eeeae3;
+  --muted: #a7a197;
+  --border: #5e5a52;
+  --control: #6b675e;
+  --accent: #8fd4bf;
+  --accent-hover: #b7eadc;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-control: var(--control);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-padding-top: 4.5rem;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.focus-target:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 70;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  overflow: visible;
+  clip: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--control);
+  white-space: normal;
+}
+
+.theme-icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a,
+  button {
+    transition:
+      color 150ms ease,
+      background-color 150ms ease,
+      border-color 150ms ease,
+      opacity 150ms ease;
+  }
+
+  .palette-backdrop {
+    animation: palette-fade 160ms ease;
+  }
+
+  .palette-dialog {
+    animation: palette-rise 160ms ease;
+  }
+}
+
+@keyframes palette-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes palette-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
