@@ -110,7 +110,7 @@ export const sectionIds = {
 } as const
 
 export const siteDescription =
-  "Maria Tesfaye is a full-stack software engineer in Addis Ababa. She contributes to production e-government procurement systems, builds full-stack applications, and evaluates AI coding agents."
+  "Maria Tesfaye is a full-stack software engineer in Addis Ababa. She contributes to production multi-tenant e-government procurement systems, builds full-stack applications, and evaluates AI coding agents."
 
 export const profile: Profile = {
   name: "Maria Tesfaye",
@@ -146,8 +146,10 @@ export const navigation: readonly NavItem[] = [
   { label: "Contact", href: `/#${sectionIds.contact}`, id: sectionIds.contact },
 ]
 
-export const about =
-  "The part of engineering I keep coming back to is a workflow that has to be right: who may act, which state is allowed next, and whether the document matches the record. My own projects are where I work through that same judgment on a smaller scale."
+export const about = [
+  "The part of engineering I keep coming back to is a workflow that has to be right: who may act, which state is allowed next, and whether the document matches the record. At Perago, that means procurement and contract processes where a wrong state transition has real consequences. My own projects are where I work through that same judgment on a smaller scale.",
+  "It’s also what draws me to evaluation work: designing tasks and tests that check whether a solution is actually correct, not just one that looks correct.",
+] as const
 
 export const contact = {
   heading: "Let's build something useful.",
@@ -162,7 +164,7 @@ export const experience: readonly ExperienceEntry[] = [
     location: "Addis Ababa, Ethiopia",
     dates: "March 2024 – Present",
     introduction:
-      "I contribute to MEGP (Malawi Electronic Government Procurement) and SEGP (Sierra Leone Electronic Government Procurement), multi-tenant e-procurement platforms connecting procurement teams, suppliers, and contract execution workflows.",
+      "I contribute to the development and maintenance of multi-tenant electronic government procurement platforms for Malawi and Sierra Leone (MEGP / SEGP), connecting procurement teams, suppliers, and contract execution workflows.",
     linksLabel: "Platform links",
     links: [
       { label: "Supplier Portal", href: "https://megp.dev.peragosystems.com/" },
@@ -170,30 +172,29 @@ export const experience: readonly ExperienceEntry[] = [
     ],
     contributions: [
       {
-        title: "Supplier portal and procurement journeys",
+        title: "Supplier portal and procurement workflows",
         summary:
-          "Implement and refine supplier-facing workflows for bid preparation and submission, submission withdrawal, clarifications, purchase orders, delivery notes, and contract signing with comments.",
-        impact: "Helps suppliers complete key procurement activities through connected digital workflows.",
+          "Implemented supplier-facing functionality across bid preparation, submission, withdrawal, clarifications, purchase orders, delivery notes, and contract signing, including associated frontend and backend changes.",
       },
       {
-        title: "Contract execution and approvals",
+        title: "Contract execution and business workflows",
         summary:
-          "Contribute to contract preparation, payment adjustments, contract claims, inspection and review, purchase-order approvals, and goods receipt notes, including related frontend and backend changes.",
-        impact:
-          "Supports traceable handoffs between contract approvals, delivery records, inspections, and payment workflows.",
+          "Developed features involving contract preparation, payment adjustments, claims review, inspections, goods receipt, and purchase-order approvals, supporting interconnected procurement and contract execution processes.",
       },
       {
         title: "Tendering and administrative review",
         summary:
-          "Implement features involving tender amendment attachments, evaluation and award interfaces, and administrative review and appeals with associated permissions and feature configuration.",
-        impact:
-          "Keeps procurement decisions, supporting documents, and access permissions aligned with each stage of the process.",
+          "Implemented tender amendment attachments, evaluation and award interfaces, administrative appeals, permission handling, and feature configuration.",
       },
       {
-        title: "Planning, vendor management, and tenant configuration",
+        title: "Planning and tenant configuration",
         summary:
-          "Work on procurement requisition workflows, technical team configuration, call-off amounts, vendor recommendation and removal, RFQ review, and tenant-specific feature configuration.",
-        impact: "Supports configurable procurement processes across different organizational and tenant requirements.",
+          "Worked on requisition workflows, vendor recommendations, RFQ reviews, technical team configuration, call-off amounts, and tenant-specific procurement settings.",
+      },
+      {
+        title: "Mentorship",
+        summary:
+          "Onboarded an intern onto the MEGP codebase, walking through the architecture, business logic and procurement workflows, assigning tasks, and reviewing their pull request.",
       },
       {
         title: "Ethiopian EGP — Angular 20 migration",
@@ -214,7 +215,7 @@ export const experience: readonly ExperienceEntry[] = [
     role: "Full-Stack Software Engineer — Testing & Evaluation",
     company: "AfterQuery",
     employmentType: "Contract",
-    // TODO(Maria): add dates when the AfterQuery contract period is confirmed.
+    dates: "January 2026 – Present",
     introduction:
       "Contribute to software-engineering benchmark development and AI coding-agent evaluation, designing reproducible tasks that assess implementation correctness, debugging ability, and performance across multi-step development workflows.",
     bullets: [
@@ -318,33 +319,30 @@ export const projects: readonly Project[] = [
 
 export const technicalStrengths: readonly TechGroup[] = [
   {
-    title: "Frontend",
+    title: "Frontend engineering",
     items: [
-      "React, Next.js, Angular, and React Native",
-      "TypeScript and JavaScript",
-      "Tailwind CSS and Mantine",
-      "Redux Toolkit and RTK Query",
-      "Forms, validation, responsive UI, and complex business workflows"
+      "TypeScript, JavaScript, React, Next.js, Angular, Redux Toolkit, RTK Query, Tailwind CSS, Mantine",
+      "Component architecture, state management, API integration, form validation, responsive interfaces, complex business workflows.",
     ],
   },
   {
     title: "Backend and APIs",
     items: [
-      "Node.js, NestJS, and FastAPI",
-      "REST APIs and service integration",
-      "PostgreSQL and relational data modeling",
-      "TypeORM, Prisma, and SQLAlchemy",
-      "Authentication, authorization, RBAC, and business rules",
+      "Node.js, NestJS, FastAPI, REST APIs, PostgreSQL, MySQL, MongoDB, TypeORM, Prisma",
+      "Authentication, authorization, RBAC, relational data modeling, business logic, multi-tenant systems.",
     ],
   },
   {
     title: "Engineering and tooling",
     items: [
-      "Python and TypeScript for development and evaluation tasks",
-      "Docker, pnpm, and monorepo workflows",
-      "Automated testing and reproducible environments",
-      "RabbitMQ and asynchronous workflows",
-      "AI coding-agent evaluation and benchmark task design",
+      "Python, Docker, Git, GitHub Actions, pnpm, Linux, Jest, PyTest, integration testing, CI/CD, monorepo workflows.",
+      "RabbitMQ, asynchronous workflows, automated verification.",
+    ],
+  },
+  {
+    title: "AI evaluation",
+    items: [
+      "Coding-agent evaluation, benchmark design, Harbor, terminal-agent testing, reproducible environments, regression testing.",
     ],
   },
 ]
@@ -357,7 +355,7 @@ export const education: Education = {
 }
 
 export const resume: ResumeConfig = {
-  path: "/resume/Maria_Tesfaye_FSCV.pdf",
-  downloadName: "Maria_Tesfaye_FSCV.pdf",
+  path: "/resume/Maria_Tesfaye_FSCV1.pdf",
+  downloadName: "Maria_Tesfaye_FSCV1.pdf",
   // updated: "October 2026",
 }
